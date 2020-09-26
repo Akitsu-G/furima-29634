@@ -9,17 +9,18 @@
 | updated_at | datetime    |
 
 ## users テーブル
-
-| Column        | Type   | Options     |
-| ------------- | ------ | ----------- |
-| nickname      | string | null: false |
-| email         | string | null: false |
-| password      | string | null: false |
-| kanji_name    | string | null: false |
-| hiragana_name | string | null: false |
-| katakana_name | string | null: false |
-| birth         | date   | null: false |
-
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| first_name      | string | null: false |
+| last_name       | string | null: false |
+| first_name_kana | string | null: false |
+| last_name_kana  | string | null: false |
+| birth           | date   | null: false |
+※gem deviseを使用しており、自動生成のカラムは一部省略しています。
+またカラム名"password"は実際には"encrypted_password"になっています。
 ### Association
 
 - has_many :items
