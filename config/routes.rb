@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'items/index'
   root to: "items#index"
-  resources :items
+  # deviseのコントローラ参照設定
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',#登録
+    sessions: 'users/sessions'#ログイン
+  }
 end
