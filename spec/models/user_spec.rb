@@ -7,40 +7,8 @@ RSpec.describe User, type: :model do
 
   describe 'user validates/ユーザー新規登録' do
     context '@user.save/成功' do
-      it "nickname, email, password, last_name, first_name,
-      first_name_kana, last_name_kana, birth が存在すれば登録できる" do
-        expect(@user).to be_valid
-      end
-      it 'passwordが6文字以上であれば登録できる' do
-        @user.password = '123abc'
-        @user.password_confirmation = '123abc'
-        @user.valid?
-        expect(@user).to be_valid
-      end
-      it 'passwordが少なくとも1文字以上の半角英字・半角数字をそれぞれ含んでいれば登録できる' do
-        @user.password = '0abcde'
-        @user.password_confirmation = '0abcde'
-        @user.valid?
-        expect(@user).to be_valid
-      end
-      it 'last_nameが、漢字・ひらがな・全角カタカナのいずれかであれば登録できる' do
-        @user.last_name = '漢字ひらがなカタカナ'
-        @user.valid?
-        expect(@user).to be_valid
-      end
-      it 'first_nameが、漢字・ひらがな・全角カタカナのいずれかであれば登録できる' do
-        @user.first_name = '漢字ひらがなカタカナ'
-        @user.valid?
-        expect(@user).to be_valid
-      end
-      it 'last_name_kanaが全角カタカナであれば登録できる' do
-        @user.last_name_kana = 'カタカナーヴ'
-        @user.valid?
-        expect(@user).to be_valid
-      end
-      it 'first_name_kanaが全角カタカナであれば登録できる' do
-        @user.first_name_kana = 'カタカナーヴ'
-        @user.valid?
+      it "nickname, email, password, last_name, first_name,first_name_kana, last_name_kana, birth
+      が全て存在し、かつ正しい形式であれば登録できる" do
         expect(@user).to be_valid
       end
     end
