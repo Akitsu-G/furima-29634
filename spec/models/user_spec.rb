@@ -2,7 +2,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
-    # p @user
   end
 
   describe 'user validates/ユーザー新規登録' do
