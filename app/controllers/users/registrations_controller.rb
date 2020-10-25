@@ -6,23 +6,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    # super
-    @user = User.new(session[:user] || {})
+    super
   end
 
   # POST /resource
   def create
-    @user = User.new(sign_up_params)
+    # super
+    @user = User.new
     if @user.save # => Validation
       # Sucess
-      session[:user] = nil
       sign_up(resource_name, resource)
       redirect_to root_path
     else
       # Failure
-      session[:user] = @user.attributes.slice(*sign_up_params.keys)
-      flash[:danger] = @user.errors.full_messages
-      redirect_to new_user_registration_path
+      render action: :new
     end
   end
 
