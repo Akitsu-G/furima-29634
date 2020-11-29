@@ -11,10 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    # super
-    @user = User.new
+    @user = User.new(sign_up_params)
     if @user.save # => Validation
-      # Sucess
+      # Success
       sign_up(resource_name, resource)
       redirect_to root_path
     else
