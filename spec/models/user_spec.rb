@@ -2,12 +2,13 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
+    # p @user
   end
 
   describe 'user validates/ユーザー新規登録' do
     context '@user.save/成功' do
-      it "nickname, email, password, last_name, first_name,first_name_kana, last_name_kana, birth
-      が全て存在し、かつ正しい形式であれば登録できる" do
+      it "nickname, email, password, last_name, first_name,
+      first_name_kana, last_name_kana, birth が存在すれば登録できる" do
         expect(@user).to be_valid
       end
     end
