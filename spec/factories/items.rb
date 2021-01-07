@@ -8,6 +8,6 @@ FactoryBot.define do
     contribution         { Faker::Number.within(range: 1..2) }
     shipping_area        { Faker::Number.within(range: 1..47) }
     days_to_ship         { Faker::Number.within(range: 1..3) }
-    selling_price        { Faker::Number.within(range: 300..9999999) }
+    selling_price        { Faker::Number.within(range: 300..9_999_999) }
   end
 end

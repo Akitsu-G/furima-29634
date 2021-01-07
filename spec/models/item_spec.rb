@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
 
   describe 'item validates/商品出品' do
     context '@item.save/成功' do
-      it "image product_name description category condition contribution shipping_area days_to_shipが存在すれば登録できる" do
+      it 'image product_name description category condition contribution shipping_area days_to_shipが存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('販売価格は¥300~¥9,999,999の整数で入力してください')
       end
       it 'selling_priceが10,000,000以上であれば登録できない' do
-        @item.selling_price = 10000000
+        @item.selling_price = 10_000_000
         @item.selling_price = @item.selling_price
         @item.valid?
         expect(@item.errors.full_messages).to include('販売価格は¥300~¥9,999,999の整数で入力してください')
