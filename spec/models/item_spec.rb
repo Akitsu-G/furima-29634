@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
 
   describe 'item validates/商品出品' do
     context '@item.save/成功' do
-      it 'image product_name description category condition contribution shipping_area days_to_shipが存在すれば登録できる' do
+      it 'image product_name description category_id condition_id contribution_id prefecture_id days_to_shipが存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -29,23 +29,23 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
-      it 'categoryが空だと登録できない' do
-        @item.category = ''
+      it 'category_idが空だと登録できない' do
+        @item.category_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
       end
-      it 'conditionが空だと登録できない' do
-        @item.condition = ''
+      it 'condition_idが空だと登録できない' do
+        @item.condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('商品の状態を選択してください')
       end
-      it 'contributionが空だと登録できない' do
-        @item.contribution = ''
+      it 'contribution_idが空だと登録できない' do
+        @item.contribution_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
       end
-      it 'shipping_areaが空だと登録できない' do
-        @item.shipping_area = ''
+      it 'prefecture_idが空だと登録できない' do
+        @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
       end

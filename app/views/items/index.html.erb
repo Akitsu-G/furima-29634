@@ -126,13 +126,13 @@
     <%= link_to '新規投稿商品', "new_item_path", class: "subtitle" %>
     <ul class='item-lists'>
 
-    <% @items.each do |item| %>
+    <%# @items.each do |item| %>
       <%# 商品のインスタンス変数になにか入っている場合 %>
       <li class='list'>
         <%= link_to "#" do %>
         <div class='item-img-content'>
           <%#= image_tag "item-sample.png", class: "item-img" %>
-          <%= image_tag item.image, class: 'item-img' if item.image.attached? %>
+          <%#= image_tag item.image, class: 'item-img' if item.image.attached? %>
           
           <%# sold out %>
           <div class='sold-out'>
@@ -156,7 +156,7 @@
         <% end %>
       </li>
       <%# /商品のインスタンス変数になにか入っている場合 %>
-    <% end %>
+    <%# end %>
 
       <%# 商品がない場合のダミー %>
       <li class='list'>
