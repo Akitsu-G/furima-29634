@@ -11,5 +11,4 @@ class User < ApplicationRecord
     validates :birth
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,128}+\z/i, message: 'は半角英字・半角数字混合で入力してください' }
-
 end

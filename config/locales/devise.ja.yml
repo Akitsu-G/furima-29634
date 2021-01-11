@@ -3,6 +3,16 @@
 ja:
   activerecord:
     attributes:
+      item:
+        image: 出品画像
+        product_name: 商品名
+        description: 商品の説明
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        contribution_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        days_to_ship_id: 発送までの日数
+        selling_price: 販売価格
       user:
         nickname: ニックネーム
         last_name: 姓
