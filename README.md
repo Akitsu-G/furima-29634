@@ -36,7 +36,7 @@
 | condition_id     | string     | null: false                    |
 | contribution_id  | integer    | null: false                    |
 | prefecture_id    | string     | null: false                    |
-| days_to_ship  | integer    | null: false                    |
+| days_to_ship_id  | integer    | null: false                    |
 | selling_price | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
 

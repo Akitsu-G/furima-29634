@@ -11,7 +11,7 @@ ja:
         condition_id: 商品の状態
         contribution_id: 配送料の負担
         prefecture_id: 発送元の地域
-        days_to_ship: 発送までの日数
+        days_to_ship_id: 発送までの日数
         selling_price: 販売価格
       user:
         nickname: ニックネーム

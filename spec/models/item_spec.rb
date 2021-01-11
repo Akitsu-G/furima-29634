@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
 
   describe 'item validates/商品出品' do
     context '@item.save/成功' do
-      it 'image product_name description category_id condition_id contribution_id prefecture_id days_to_shipが存在すれば登録できる' do
+      it 'image product_name description category_id condition_id contribution_id prefecture_id days_to_ship_idが存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -34,8 +34,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
       end
+      it 'category_idが0だと登録できない' do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
+      end
       it 'condition_idが空だと登録できない' do
         @item.condition_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('商品の状態を選択してください')
+      end
+      it 'condition_idが0だと登録できない' do
+        @item.condition_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('商品の状態を選択してください')
       end
@@ -44,13 +54,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
       end
+      it 'contribution_idが0だと登録できない' do
+        @item.contribution_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
+      end
       it 'prefecture_idが空だと登録できない' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
       end
-      it 'days_to_shipが空だと登録できない' do
-        @item.days_to_ship = ''
+      it 'prefecture_idが0だと登録できない' do
+        @item.prefecture_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
+      end
+      it 'days_to_ship_idが空だと登録できない' do
+        @item.days_to_ship_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('発送までの日数を選択してください')
+      end
+      it 'days_to_ship_idが0だと登録できない' do
+        @item.days_to_ship_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include('発送までの日数を選択してください')
       end
