@@ -32,10 +32,10 @@
 | ------------- | ---------- | ------------------------------ |
 | product_name  | string     | null: false                    |
 | description   | string     | null: false                    |
-| category_id      | string     | null: false                    |
-| condition_id     | string     | null: false                    |
+| category_id      | integer     | null: false                    |
+| condition_id     | integer     | null: false                    |
 | contribution_id  | integer    | null: false                    |
-| prefecture_id    | string     | null: false                    |
+| prefecture_id    | integer     | null: false                    |
 | days_to_ship_id  | integer    | null: false                    |
 | selling_price | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
