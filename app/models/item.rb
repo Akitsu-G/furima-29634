@@ -1,7 +1,12 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :contribution
+  belongs_to :user
   has_one_attached :image
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :contribution
+  belongs_to_active_hash :days_to_ship
+  belongs_to_active_hash :prefecture
 
   with_options presence: true do
     validates :image, presence: { message: 'を選択してください' }
