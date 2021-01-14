@@ -30,7 +30,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # item.update(item_params)
+    if @item.update(item_params) # => Validation
+      # Success
+      redirect_to item_path(@item.id)
+    else
+      # Failure
+      render action: :edit
+    end
   end
 
   def show
