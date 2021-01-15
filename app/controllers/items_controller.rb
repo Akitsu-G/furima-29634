@@ -27,10 +27,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+      if user_signed_in? && current_user.id != @item.user_id
+        redirect_to root_path
+      end
   end
 
   def update
-    # item.update(item_params)
+    if @item.update(item_params) # => Validation
+      # Success
+      redirect_to item_path(@item.id)
+    else
+      # Failure
+      render action: :edit
+    end
   end
 
   def show
