@@ -1,7 +1,7 @@
 <% if model.errors.any? %>
 <div class="error-alert">
   <ul>
-    <li>※入力した内容にエラーが<%= model.errors.count %>件あります</li>
+    <li>※入力した内容にエラーが <%= model.errors.count %> 件あります</li>
     <% model.errors.full_messages.each do |message| %>
       <li class='error-message'><%= message %></li>
     <% end %>

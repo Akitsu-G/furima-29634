@@ -135,11 +135,11 @@
             <%= image_tag item.image, class: 'item-img' if item.image.attached? %>
             
             <%# 商品が売れている場合 %>
-            <%# if  %>
-            <%# <div class='sold-out'>
+            <% if Order.where(item_id: item.id).any? %>
+            <div class='sold-out'>
               <span>Sold Out!!</span>
-            </div> %>
-            <%# end %>
+            </div>
+            <% end %>
             <%# /商品が売れている場合 %>
 
           </div>

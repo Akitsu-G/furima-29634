@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   root to: "items#index"
 
   # item
-  resources :items
+  resources :items do
+    # order
+    resources :orders
+  end
+
+  # address
+  resources :addresses
 
   # devise
   devise_for :users, controllers: {

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # 登録時 送信パラメーター制限(ログイン時はデフォルト)
+  # devise登録時 送信パラメーター制限(ログイン時はデフォルト)
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
       :sign_up, keys:

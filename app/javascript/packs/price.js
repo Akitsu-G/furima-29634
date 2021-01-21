@@ -6,10 +6,10 @@ document.addEventListener('turbolinks:load', function(){
   if(!input == false){
     input.addEventListener('input', updateValue);
   }
-  function updateValue(e){
-    if((e.target.value).match(/^\d+$/)){
-      v1.textContent = Math.floor(parseFloat(e.target.value) * charge_rate);
-      v2.textContent = Math.floor(parseFloat(e.target.value)) - Math.floor(parseFloat(e.target.value) * charge_rate);
+  function updateValue(f){
+    if((f.target.value).match(/^\d+$/)){
+      v1.textContent = Math.floor(parseFloat(f.target.value) * charge_rate);
+      v2.textContent = Math.floor(parseFloat(f.target.value)) - Math.floor(parseFloat(f.target.value) * charge_rate);
     }else{
       v1.textContent = '';
       v2.textContent = '';
