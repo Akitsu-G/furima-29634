@@ -9,6 +9,11 @@ RSpec.describe OrderAddress, type: :model do
       it 'token, postal_code, prefecture_id, city, house_number, phone_number が存在すれば登録できる' do
         expect(@order_address).to be_valid
       end
+
+      it 'building_name がなくても登録できる' do
+        @order_address.building_name = ''
+        expect(@order_address).to be_valid
+      end
     end
 
     context '@order_address.save/失敗' do
@@ -41,6 +46,16 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.phone_number = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('電話番号を入力してください')
+      end
+      it 'user_idが空だと登録できない' do
+        @order_address.user_id = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Userを入力してください')
+      end
+      it 'item_idが空だと登録できない' do
+        @order_address.item_id = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Itemを入力してください')
       end
       it 'postal_codeが「000-0000」の形式でなければ登録できない' do
         @order_address.postal_code = '1001234'

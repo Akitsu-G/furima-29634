@@ -3,10 +3,8 @@ class OrdersController < ApplicationController
   before_action :set_item
 
   def index
-    # 購入済み
-    return redirect_to root_path if Order.where(item_id: @item.id).any?
-    # 出品者
-    return redirect_to root_path if current_user.id == @item.user_id
+    # 購入済みまたは出品者
+    return redirect_to root_path if Order.where(item_id: @item.id).any? || current_user.id == @item.user_id
 
     @order_address = OrderAddress.new
   end
