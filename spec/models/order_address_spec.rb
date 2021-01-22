@@ -57,6 +57,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Itemを入力してください')
       end
+      it 'prefecture_idが0だと登録できない' do
+        @order_address.prefecture_id = 0
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('都道府県を選択してください')
+      end      
       it 'postal_codeが「000-0000」の形式でなければ登録できない' do
         @order_address.postal_code = '1001234'
         @order_address.valid?

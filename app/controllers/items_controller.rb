@@ -27,7 +27,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if current_user.id != @item.user_id
+    # 購入済みまたは出品者ではない
+    return redirect_to root_path if Order.where(item_id: @item.id).any? || current_user.id != @item.user_id
   end
 
   def update
